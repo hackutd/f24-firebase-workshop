@@ -4,13 +4,13 @@ import { db } from './firebaseConfig'
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore"
 
 function App() {
-
   const [newName, setNewName] = useState("");
   const [newAge, setNewAge] = useState(0);
-  //state, function -> array so initialize it
+
+  // state, function -> array so initialize it
   const [users, setUsers] = useState([]);
 
-  //createsa  reference to what db we are using
+  // creates a reference to what db we are using
   const usersCollectionRef = collection(db, "users");
 
   const createUser = async () => {
@@ -31,15 +31,15 @@ function App() {
     window.location.reload();
   }
 
-  //function called when page renders, where we are going to do our api call
+  // function called when page renders, where we are going to do our api call
   useEffect(() => {
 
-    //bad practice to make use affect async so we make this async function and then call it
-    //function for getting data from our database and assigning it to a variable
+    // bad practice to make use affect async so we make this async function and then call it
+    // function for getting data from our database and assigning it to a variable
     const getUsers = async () => {
       const data = await getDocs(usersCollectionRef);
 
-      //looping through our data and setting our users array to have the documents data and id
+      // looping through our data and setting our users array to have the documents data and id
       setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id })));
     };
 
@@ -56,7 +56,7 @@ function App() {
           <div>
             <h1>Name: {user.name}</h1>
             <h1>Age: {user.age}</h1>
-            <button onClick={() => { updateUser(user.id, user.age);}}>Increase Age</button>
+            <button onClick={() => {updateUser(user.id, user.age)}}>Increase Age</button>
             <button onClick={() => {deleteUser(user.id)}}>Delete User</button>
           </div>
         );
