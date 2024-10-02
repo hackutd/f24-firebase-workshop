@@ -4,6 +4,7 @@ import { db } from './firebaseConfig'
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore"
 
 function App() {
+  {/* CODE ALONG CODE */}
   const [newName, setNewName] = useState("");
   const [newAge, setNewAge] = useState(0);
 
@@ -46,8 +47,12 @@ function App() {
     getUsers();
   }, [])
 
+  {/* CODE ALONG END */}
+
   return (
     <div>
+      {/* ANYTHING onChange OR onClick THEY DONT GET */}
+      {/* Take out any prop stuff that makes it so that the page doesnt render when they first load */}
       <input placeholder="Name" onChange={(event) => setNewName(event.target.value)}/>
       <input type="number" placeholder="Age" onChange={(event) => setNewAge(event.target.value)}/>
       <button onClick={createUser}>Create User</button>
