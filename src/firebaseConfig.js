@@ -1,8 +1,9 @@
+{/* THEY WONT GET THIS FILE */}
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "API KEY",
+    apiKey: "AIzaSyDjW7nYpHneLf9e7ICyaArBU-Rbwcal41Q",
     authDomain: "joshenem-75746.firebaseapp.com",
     projectId: "joshenem-75746",
     storageBucket: "joshenem-75746.appspot.com",
