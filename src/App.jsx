@@ -22,6 +22,7 @@ function App() {
   }
 
   const deleteUser = async (id) => {
+    window.location.reload();
   }
 
   // function called when page renders, where we are going to do our api call
@@ -34,6 +35,7 @@ function App() {
       // looping through our data and setting our users array to have the documents data and id
     };
 
+    getUsers();
   }, [])
 
   {/* CODE ALONG END */}
