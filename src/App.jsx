@@ -12,24 +12,17 @@ function App() {
   const [users, setUsers] = useState([]);
 
   // creates a reference to what db we are using
-  const usersCollectionRef = collection(db, "users");
+ 
 
   const createUser = async () => {
-    await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
     window.location.reload();
   }
 
   const updateUser = async (id, age) => {
-    const userDoc = doc(db, "users", id)
-    const newFields = {age: age + 1}
-    await updateDoc(userDoc, newFields)
     window.location.reload();
   }
 
   const deleteUser = async (id) => {
-    const userDoc = doc(db, "users", id);
-    await deleteDoc(userDoc);
-    window.location.reload();
   }
 
   // function called when page renders, where we are going to do our api call
@@ -38,19 +31,18 @@ function App() {
     // bad practice to make use affect async so we make this async function and then call it
     // function for getting data from our database and assigning it to a variable
     const getUsers = async () => {
-      const data = await getDocs(usersCollectionRef);
 
       // looping through our data and setting our users array to have the documents data and id
-      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id })));
     };
 
-    getUsers();
   }, [])
 
   {/* CODE ALONG END */}
 
   return (
     <div>
+      {/* ANYTHING onChange OR onClick THEY DONT GET */}
+      {/* Take out any prop stuff that makes it so that the page doesnt render when they first load */}
       <input placeholder="Name" onChange={(event) => setNewName(event.target.value)}/>
       <input type="number" placeholder="Age" onChange={(event) => setNewAge(event.target.value)}/>
       <button onClick={createUser}>Create User</button>
