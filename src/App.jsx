@@ -1,6 +1,5 @@
 import { useState, useEffect, cloneElement } from 'react'
 import './App.css'
-import { db } from './firebaseConfig'
 import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc } from "firebase/firestore"
 
 function App() {
