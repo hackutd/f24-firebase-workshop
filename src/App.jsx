@@ -51,8 +51,6 @@ function App() {
 
   return (
     <div>
-      {/* ANYTHING onChange OR onClick THEY DONT GET */}
-      {/* Take out any prop stuff that makes it so that the page doesnt render when they first load */}
       <input placeholder="Name" onChange={(event) => setNewName(event.target.value)}/>
       <input type="number" placeholder="Age" onChange={(event) => setNewAge(event.target.value)}/>
       <button onClick={createUser}>Create User</button>
